@@ -31,12 +31,6 @@ namespace ServerApp.Controller
             return string.Join(",", orgNames);
         }
 
-        public static IEnumerable<Organization> GetAllOrganizations()
-        {
-            return Data.Organizations;
-        }
-
-
         public static string GetUsersBySelect(string orgName)
         {
             Organization org = GetOrganizationByName(orgName);

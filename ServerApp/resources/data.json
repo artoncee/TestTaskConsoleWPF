@@ -3,16 +3,16 @@
     "Name": "OrganizationA",
     "Users": [
       {
-        "Username": "user1",
-        "Password": "password1"
+        "Username": "user2",
+        "Password": "edee29f882543b956620b26d0ee0e7e950399b1c4222f5de05e06425b4c995e9"
       },
       {
-        "Username": "user2",
-        "Password": "password2"
+        "Username": "user3",
+        "Password": "318aee3fed8c9d040d35a7fc1fa776fb31303833aa2de885354ddf3d44d8fb69"
       },
       {
         "Username": "inzilya",
-        "Password": "1111"
+        "Password": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c"
       }
     ]
   },
@@ -20,20 +20,20 @@
     "Name": "OrganizationB",
     "Users": [
       {
-        "Username": "user3",
-        "Password": "password3"
-      },
-      {
         "Username": "user4",
-        "Password": "password4"
-      },
-      {
-        "Username": "artoncee",
-        "Password": "1111"
+        "Password": "79f06f8fde333461739f220090a23cb2a79f6d714bee100d0e4b4af249294619"
       },
       {
         "Username": "user5",
-        "Password": "QuUEd2xH"
+        "Password": "c1f330d0aff31c1c87403f1e4347bcc21aff7c179908723535f2b31723702525"
+      },
+      {
+        "Username": "artonce",
+        "Password": "8440510cd4d270beddbf9a9fd1ee85e715497a9f2b60286a1d29b028f0238491"
+      },
+      {
+        "Username": "test2",
+        "Password": "37268335dd6931045bdcdf92623ff819a64244b53d0e746d438797349d4da578"
       }
     ]
   }

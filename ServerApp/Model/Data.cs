@@ -50,7 +50,8 @@ namespace ServerApp
         public static void SaveData()
         {
             string json = JsonConvert.SerializeObject(Organizations, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText("data.json", json);
+            string path = GetPathToFile();
+            File.WriteAllText(path, json);
         }
     }
 }

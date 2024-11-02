@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace ClientApp
 
         private void LoadOrganizations()
         {
-            string response = client.SendRequest("GET_ORGANIZATIONS");
+            string response = client.SendRequest(ConstResponse.GetOrganizations);
             var org = response.Split(',');
             OrgNameComboBox.ItemsSource = org;
         }
@@ -46,9 +47,9 @@ namespace ClientApp
                 return;
             }
 
-            string response = client.SendRequest($"REGISTRATION|{username}|{password}|{orgName}");
+            string response = client.SendRequest($"{ConstResponse.RegistrationResponse}|{username}|{password}|{orgName}");
 
-            if (response == "REGISTRATION_SUCCESS")
+            if (response == ConstResponse.RegistrationSuccess)
             {
                 MessageBox.Show("Регистрация прошла успешно");
             }

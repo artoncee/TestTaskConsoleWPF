@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,9 +39,9 @@ namespace ClientApp
                 return;
             }
 
-            string response = client.SendRequest($"LOGIN1|{username}|{password}");
+            string response = client.SendRequest($"{ConstResponse.Login1Response}|{username}|{password}");
 
-            if (response == "LOGIN_SUCCESS")
+            if (response == ConstResponse.LoginSuccess)
             {
                 MessageBox.Show("Авторизация прошла успешно");
             }

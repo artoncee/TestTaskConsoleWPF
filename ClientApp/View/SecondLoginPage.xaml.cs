@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace ClientApp
 
         private void LoadOrganizations()
         {
-            string response = client.SendRequest("GET_ORGANIZATIONS");
+            string response = client.SendRequest(ConstResponse.GetOrganizations);
             var org = response.Split(',');
             OrgNameComboBox.ItemsSource = org;
         }
@@ -35,7 +36,7 @@ namespace ClientApp
         private void LoadUsers()
         {
             string selectedOrgName = OrgNameComboBox.SelectedItem.ToString();
-            string response = client.SendRequest($"GET_USERS|{selectedOrgName}");
+            string response = client.SendRequest($"{ConstResponse.GetUsers}|{selectedOrgName}");
             var users = response.Split(',');
             UsernameComboBox.ItemsSource = users;
         }
@@ -62,7 +63,7 @@ namespace ClientApp
                 return;
             }
 
-            string response = client.SendRequest($"LOGIN2|{username}|{password}|{orgName}");
+            string response = client.SendRequest($"{ConstResponse.Login2Response}|{username}|{password}|{orgName}");
 
             if (response == "LOGIN_SUCCESS")
             {
