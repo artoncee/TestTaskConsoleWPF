@@ -17,7 +17,7 @@ namespace ServerApp
         public static void LoadData()
         {
             Console.WriteLine("Текущий рабочий каталог: " + Directory.GetCurrentDirectory());
-            string path = "C:\\Users\\inzil\\Desktop\\Новая папка\\ServerApp\\resources\\data.json";
+            string path = GetPathToFile();
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);
@@ -28,6 +28,23 @@ namespace ServerApp
             {
                 Console.WriteLine("Не удалось прочитать json файл");
             }
+        }
+
+        private static string GetPathToFile()
+        {
+            string rootPath = null;
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var directoryInfo = Directory.GetParent(baseDirectory)?.Parent;
+
+            if (directoryInfo?.Parent == null)
+            {
+                return null;
+            }
+
+            rootPath = directoryInfo.Parent.FullName;
+            rootPath += @"\\resources\\data.json";
+
+            return rootPath;
         }
 
         public static void SaveData()
