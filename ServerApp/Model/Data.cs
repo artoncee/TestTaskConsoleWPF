@@ -17,7 +17,7 @@ namespace ServerApp
         public static void LoadData()
         {
             Console.WriteLine("Текущий рабочий каталог: " + Directory.GetCurrentDirectory());
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "data.json");
+            string path = "C:\\Users\\inzil\\Desktop\\Новая папка\\ServerApp\\resources\\data.json";
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);

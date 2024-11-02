@@ -1,0 +1,40 @@
+[
+  {
+    "Name": "OrganizationA",
+    "Users": [
+      {
+        "Username": "user1",
+        "Password": "password1"
+      },
+      {
+        "Username": "user2",
+        "Password": "password2"
+      },
+      {
+        "Username": "inzilya",
+        "Password": "1111"
+      }
+    ]
+  },
+  {
+    "Name": "OrganizationB",
+    "Users": [
+      {
+        "Username": "user3",
+        "Password": "password3"
+      },
+      {
+        "Username": "user4",
+        "Password": "password4"
+      },
+      {
+        "Username": "artoncee",
+        "Password": "1111"
+      },
+      {
+        "Username": "user5",
+        "Password": "QuUEd2xH"
+      }
+    ]
+  }
+]
