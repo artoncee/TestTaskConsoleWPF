@@ -2,15 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
+
 
 
 namespace ServerApp
 {
-    internal static class Data
+    internal static class DataHandler
     {
         public static List<Organization> Organizations = new List<Organization>();
 
@@ -21,6 +19,7 @@ namespace ServerApp
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);
+
                 Organizations = JsonConvert.DeserializeObject<List<Organization>>(json);
                 Console.WriteLine("Файл успешно считан");
             }
@@ -51,7 +50,15 @@ namespace ServerApp
         {
             string json = JsonConvert.SerializeObject(Organizations, Newtonsoft.Json.Formatting.Indented);
             string path = GetPathToFile();
-            File.WriteAllText(path, json);
+            try
+            {
+                File.WriteAllText(path, json);
+                Console.WriteLine("Данные успешно сохранены");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при сохранении данных: {ex.ToString()}");
+            }            
         }
     }
 }

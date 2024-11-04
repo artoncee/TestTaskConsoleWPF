@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ServerApp.Controller
 {
-    internal class DataHandler
+    internal class DataService
     {
         public static Organization GetOrganizationByName(string name)
         {
-            foreach (Organization org in Data.Organizations)
+            foreach (Organization org in DataHandler.Organizations)
             {
                 if (org.Name == name)
                 {
@@ -19,22 +19,23 @@ namespace ServerApp.Controller
             }
             return null;
         }
+ 
 
         public static string GetOrganizationsBySelect()
         {
             List<string> orgNames = new List<string>();
 
-            foreach (Organization org in Data.Organizations)
+            foreach (Organization org in DataHandler.Organizations)
             {
                 orgNames.Add(org.Name);
             }
             return string.Join(",", orgNames);
         }
 
-        public static string GetUsersBySelect(string orgName)
-        {
-            Organization org = GetOrganizationByName(orgName);
 
+        public static string GetUsersBySelect(string orgName)
+        {            
+            Organization org = GetOrganizationByName(orgName);
             List<string> usernames = new List<string>();
             foreach (User user in org.Users)
             {

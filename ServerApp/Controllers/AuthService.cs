@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServerApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -9,21 +10,20 @@ namespace ServerApp.Controller
 {
     internal class AuthService
     {
-
         public static string RegistrationUser(string username, string password, string orgName)
         {           
-            foreach (Organization organization in Data.Organizations)
+            foreach (Organization organization in DataHandler.Organizations)
             {
                 foreach (User user in organization.Users)
                 {
                     if (user.Username == username)
                     {
-                        return "USER_IS_ALREADY_REGISTERED";
+                        return ConstRequest.UserIsAlreadyRegistered;
                     }
                 }
             }
            
-            Organization org = DataHandler.GetOrganizationByName(orgName);
+            Organization org = DataService.GetOrganizationByName(orgName);
             string hashedPassword = HashPassword(password);
             User newUser = new User
             {
@@ -32,44 +32,44 @@ namespace ServerApp.Controller
             };
 
             org.Users.Add(newUser);
-            Data.SaveData();
+            DataHandler.SaveData();
             Console.WriteLine($"Пользователь {username} успешно зарегистрирован в организации {orgName}");
-            return "REGISTRATION_SUCCESS";
+            return ConstRequest.RegistrationSuccess;
         }
 
         public static string LoginUser1(string username, string password)
         {
             string hashedPassword = HashPassword(password);
 
-            foreach (Organization org in Data.Organizations)
+            foreach (Organization org in DataHandler.Organizations)
             {
                 foreach (User user in org.Users)
                 {
                     if (user.Username == username && user.Password == hashedPassword)
                     {
                         Console.WriteLine($"Авторизация {username} прошла успешно");
-                        return "LOGIN_SUCCESS";
+                        return ConstRequest.LoginSuccess;
                     }
                 }
             }
             Console.WriteLine("Авторизация не удалась");
-            return "LOGIN_FAILED";
+            return ConstRequest.LoginFailed;
         }
 
         public static string LoginUser2(string username, string password, string orgName)
         {
-            Organization org = DataHandler.GetOrganizationByName(orgName);
+            Organization org = DataService.GetOrganizationByName(orgName);
             string hashedPassword = HashPassword(password);
             foreach (User user in org.Users)
             {
                 if (user.Username == username && user.Password == hashedPassword)
                 {
                     Console.WriteLine($"Авторизация {username} прошла успешно");
-                    return "LOGIN_SUCCESS";
+                    return ConstRequest.LoginSuccess;
                 }
             }
             Console.WriteLine("Авторизация не удалась");
-            return "LOGIN_FAILED";
+            return ConstRequest.LoginFailed;
         }
 
         private static string HashPassword(string password)

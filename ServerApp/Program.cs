@@ -10,7 +10,7 @@ namespace ServerApp
     {
         static void Main(string[] args)
         {
-            Data.LoadData();
+            DataHandler.LoadData();
             Server.StartServer();
         }
     }

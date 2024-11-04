@@ -46,20 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AuthService.cs" />
-    <Compile Include="Controller\CommandHandler.cs" />
-    <Compile Include="Controller\DataHandler.cs" />
-    <Compile Include="Controller\Server.cs" />
-    <Compile Include="Model\Data.cs" />
-    <Compile Include="Model\Organization.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Controllers\AuthService.cs" />
+    <Compile Include="Models\CommandHandler.cs" />
+    <Compile Include="Controllers\DataService.cs" />
+    <Compile Include="Controllers\Server.cs" />
+    <Compile Include="Models\DataHandler.cs" />
+    <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ConstRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <Resource Include="resources\data.json" />
+    <Resource Include="Resources\data.json" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
